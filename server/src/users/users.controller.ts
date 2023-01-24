@@ -16,4 +16,9 @@ export class UsersController {
   ): Promise<User> {
     return this.userService.createUser({ ...createUserDto, createdAt: new Date(), updatedAt: new Date() });
   }
+
+  @Get('users')
+  async getUsers(): Promise<User[]> {
+    return this.userService.findAll()
+  }
 }
