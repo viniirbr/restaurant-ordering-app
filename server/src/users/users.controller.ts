@@ -7,18 +7,18 @@ import { UsersService } from './users.service';
 @Controller()
 export class UsersController {
   constructor(
-    private readonly userService: UsersService,
+    private readonly usersService: UsersService,
   ) { }
 
   @Post('users')
   async signUpUser(
     @Body() createUserDto: CreateUserDto
   ): Promise<User> {
-    return this.userService.createUser({ ...createUserDto, createdAt: new Date(), updatedAt: new Date() });
+    return this.usersService.createUser({ ...createUserDto, createdAt: new Date(), updatedAt: new Date() });
   }
 
   @Get('users')
-  async getUsers(): Promise<User[]> {
-    return this.userService.findAll()
+  async retrieveAllUsers(): Promise<User[]> {
+    return this.usersService.findAll()
   }
 }
