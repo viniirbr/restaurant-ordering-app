@@ -24,8 +24,8 @@ model Table {
   id          String   @id @default(uuid())
   number      Int      @unique
   status      String   @default("inactive")
-  attendant   User     @relation(fields: [attendantId], references: [id])
-  attendantId String
+  attendant   User?    @relation(fields: [attendantId], references: [id])
+  attendantId String?
   createdAt   DateTime
   updatedAt   DateTime
   Order       Order[]
